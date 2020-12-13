@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--  Описание через аннотации  -->
+    <context:component-scan base-package="com.mygroup.springlearning.chapter3.example3"/>
+
+    <util:map id="map" map-class="java.util.HashMap">
+        <entry key="someValue" value="It's a Friday, we finally made it"/>
+        <entry key="it could be a bean, but will just text" value="hello"/>
+    </util:map>
+
+    <util:properties id="props">
+        <prop key="firstName">John</prop>
+        <prop key="Props can be only text">Mayer</prop>
+    </util:properties>
+
+    <util:set id="set" set-class="java.util.HashSet">
+        <value>I can't believe I get to see your face</value>
+        <value>to set there can to put bean, but it's just String</value>
+    </util:set>
+
+    <util:list id="list" list-class="java.util.ArrayList">
+        <value>Listvalue: I can't believe I get to see your face</value>
+        <value>Listvalue: to set there can to put bean, but it's just String</value>
+    </util:list>
+
+
+    <!--  Описание полностью в XML  -->
+<!--    <bean id="injectCollection" class="com.mygroup.springlearning.chapter3.example3.Chapter3Example3Main">
+        <property name="map">
+            <map>
+                <entry key="someValue" value="It's a Friday, we finally made it"/>
+                <entry key="it could be a bean, but will just text" value="hello"/>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="firstName">John</prop>
+                <prop key="Props can be only text">Mayer</prop>
+            </props>
+        </property>
+        <property name="set">
+            <set>
+                <value>I can't believe I get to see your face</value>
+                <value>to set there can to put bean, but it's just String</value>
+            </set>
+        </property>
+        <property name="list">
+            <list>
+                <value>Listvalue: I can't believe I get to see your face</value>
+                <value>Listvalue: to set there can to put bean, but it's just String</value>
+            </list>
+        </property>
+    </bean>-->
+</beans>

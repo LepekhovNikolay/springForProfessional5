@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  Поиск бинов по директории  -->
+<!--    <context:annotation-config/>-->
+<!--    <context:component-scan base-package="com.mygroup.springlearning.secondstep"/>-->
+
+    <!--  Конфигурация бинов в xml  -->
+<!--    <bean id="injectSimple" class="SecondStepMain"-->
+<!--          p:name-ref="nameOfProgrammer" p:age="39" p:height="1.92" p:ageInSeconds="124401112" p:programmer="true"/>-->
+<!--    <bean id="nameOfProgrammer" class="java.lang.String"-->
+<!--          c:_0="John Mayer"/>-->
+
+    <!--  Конфигурация бинов с использование SpEL  -->
+    <bean id="fromInject" class="com.mygroup.springlearning.chapter3.example2.Chapter3Example2Injectonfig"/>
+
+    <bean id="injectSimple"  class="com.mygroup.springlearning.chapter3.example2.Chapter3Example2Main"
+          p:name="#{fromInject.name}" p:age="#{fromInject.age}" p:height="#{fromInject.height}"
+          p:ageInSeconds="#{fromInject.ageInSeconds}" p:programmer="#{fromInject.programmer}"/>
+</beans>
